@@ -1,44 +1,55 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
-class Building {
-public:
-    Building(std::string name, int level) : name(name), level(level) {}
+using namespace std;
 
-    void upgrade() {
-        level++;
+void startGame();
+void visitPark();
+void visitCafe();
+void visitLibrary();
+
+int main() {
+    startGame();
+    return 0;
+}
+
+void startGame() {
+    cout << "Willkommen in der Stadt! Wohin moechtest du gehen?" << endl;
+    cout << "1. Park" << endl;
+    cout << "2. Cafe" << endl;
+    cout << "3. Bibliothek" << endl;
+    cout << "Waehle eine Option (1-3): ";
+    
+    int choice;
+    cin >> choice;
+
+    switch (choice) {
+        case 1:
+            visitPark();
+            break;
+        case 2:
+            visitCafe();
+            break;
+        case 3:
+            visitLibrary();
+            break;
+        default:
+            cout << "Ungueltige Auswahl. Spiel beendet." << endl;
+            break;
     }
+}
 
-    std::string getName() const {
-        return name;
-    }
+void visitPark() {
+    cout << "Du bist jetzt im Park. Es ist ruhig und schoen hier." << endl;
+    // Weitere Logik und Optionen für den Park
+}
 
-    int getLevel() const {
-        return level;
-    }
+void visitCafe() {
+    cout << "Du bist jetzt im Cafe. Es riecht nach Kaffee und Gebaeck." << endl;
+    // Weitere Logik und Optionen für das Cafe
+}
 
-private:
-    std::string name;
-    int level;
-};
-
-class City {
-public:
-    City(std::string name) : name(name) {}
-
-    void addBuilding(const Building& building) {
-        buildings.push_back(building);
-    }
-
-    void showBuildings() const {
-        std::cout << "Buildings in " << name << ":\n";
-        for (const auto& building : buildings) {
-            std::cout << "- " << building.getName() << " (Level " << building.getLevel() << ")\n";
-        }
-    }
-
-private:
-    std::string name;
-    std::vector<Building> buildings;
-};
+void visitLibrary() {
+    cout << "Du bist jetzt in der Bibliothek. Es ist ruhig und du siehst viele Buecher." << endl;
+    // Weitere Logik und Optionen für die Bibliothek
+}
